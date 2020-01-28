@@ -1,5 +1,5 @@
 @extends('layout.registration')
-@section('title', 'home')
+@section('title', 'Dashboard')
 @section('content')
 
 @overwrite

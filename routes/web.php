@@ -25,11 +25,15 @@ Route::get('/logout', 'usersController@logout')->name("user.logout");
 Route::get('/home', 'usersController@home')->name('user_home');
 Route::get('/paiditems', 'usersController@paidItems')->name("user_paid_items");
 Route::get('/cart', 'usersController@cart')->name("user_cart");
+Route::get('/cart/add/{id}', 'usersController@addItem')->name("user_addItem");
+Route::get('/cart/remove/{id}', 'usersController@removeItem')->name("user_removeItem");
 Route::get('/pendings', 'usersController@pendings')->name("user_pendings");
 Route::get('/search', 'usersController@search')->name("user_search");
 
 Route::get('/admin', 'adminController@home')->name('admin_home');
 Route::post('/admin/search', 'adminController@search')->name("admin_search");
+Route::get('/admin/view/product/{id}', 'adminController@viewProduct')->name("admin_viewProduct");
+Route::get('/admin/view/user/{id}', 'adminController@viewUser')->name("admin_viewUser");
 Route::get('/admin/pendings', 'adminController@pendings')->name('admin_pendings');
 Route::get('/admin/product', 'adminController@addProduct')->name('admin_addProduct');
 Route::post('/admin/product', 'adminController@create')->name('admin_create');
@@ -38,6 +42,7 @@ Route::get('/admin/update/{id}', 'adminController@updateForm')->name("admin_upda
 Route::get('/admin/delete/{id}', 'adminController@deleteForm')->name("admin_deleteForm");
 Route::post('/admin/update/{id}', 'adminController@update')->name("admin_update");
 Route::get('/admin/delete/{id}', 'adminController@delete')->name("admin_delete");
+Route::get('/admin/paiditems/add/{id}', 'adminController@addPaidItems')->name("admin_addPaidItems");
 
 Route::get('/profile', function() {
     return view('user.profile');

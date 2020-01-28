@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Products;
+use App\Models\Pendings;
+use App\Models\PaidItems;
+use App\Models\Users;
 use DB;
 
 class adminController extends Controller
@@ -14,7 +17,31 @@ class adminController extends Controller
     }
 
     public function paidItems() {
-        return view('admin.paid_items');
+        $paid_items = PaidItems::with('user')->with('product')->get();
+        return view('admin.paid_items', compact('paid_items'));
+    }
+
+    public function addPaidItems(Request $request, $id) {
+        \DB::beginTransaction();
+        try {
+            $pendings = Pendings::where('id', '=', $id)->get();
+
+            $paid_items = new PaidItems([
+                'product_id' => $pendings[0]['product_id'],
+                'user_id' => $pendings[0]['user_id'],
+                'quantity' => $pendings[0]['quantity'],
+                'total_cost' => $pendings[0]['total_cost']
+            ]);
+
+            Pendings::findOrFail($id)->delete();
+            $paid_items->save();
+            DB::commit();
+            return redirect('admin/paiditems')->with('success', 'Successfully added to paid items.');
+        }
+        catch (Exception $e) {
+            \DB::rollback();
+            return redirect()->back()->withErrors('failed', 'Failed to add to paid items.');
+        }
     }
 
     public function search(Request $request) {
@@ -26,9 +53,21 @@ class adminController extends Controller
         }
     }
 
-    public function pendings() {
-        return view('admin.pendings');
+    public function viewProduct(Request $request, $id) {
+        $products = Products::where('id', '=', $id)->get();
+        return view('admin.search', compact('products'));
     }
+
+    public function viewUser(Request $request, $id) {
+        $users = Users::where('id', '=', $id)->get();
+        return view('admin.viewUser', compact('users'));
+    }
+
+    public function pendings() {
+        $pendings = Pendings::with('user')->with('product')->get();
+        return view('admin.pending', compact('pendings'));
+    }
+
     public function logout() {
         return redirect('login')->with('logout', "successful logout");
     }

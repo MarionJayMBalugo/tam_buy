@@ -11,8 +11,7 @@ class pageController extends Controller
     public function registerForm(){
         return view('register');
     }
-<<<<<<< HEAD
-    
+
     public function loginForm(){
         return view('login');
     }
@@ -93,13 +92,8 @@ class pageController extends Controller
         }
         // return redirect('home');
     }
-}
-=======
-    public function login(){
-        return view('login');
-    }
+
     public function home(){
         return view('home');
     }
 }
->>>>>>> 63f69351875192790a1958fd426c519634612ee4

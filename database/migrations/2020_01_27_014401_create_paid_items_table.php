@@ -15,9 +15,10 @@ class CreatePaidItemsTable extends Migration
     {
         Schema::create('paid_items', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('product_title');
-            $table->double('price');
+            $table->integer('product_id');
+            $table->integer('user_id');
             $table->integer('quantity');
+            $table->double('total_cost');
             $table->timestamps();
         });
     }

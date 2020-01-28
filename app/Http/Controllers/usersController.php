@@ -21,6 +21,14 @@ class usersController extends Controller
         return view('user.cart');
     }
 
+    public function addItem(Request $request, $id) {
+
+    }
+
+    public function removeItem(Request $request, $id) {
+
+    }
+
     public function search() {
         return view('user.search');
     }

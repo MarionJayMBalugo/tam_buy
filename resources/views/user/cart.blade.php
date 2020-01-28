@@ -6,7 +6,7 @@
 <table class="table text-center">
     <thead>
         <tr>
-            <th scope="col">#</th>
+            <th scope="col"></th>
             <th scope="col">Title</th>
             <th scope="col">Price</th>
             <th scope="col">Quantity</th>
@@ -15,9 +15,11 @@
     </thead>
     <tbody>
         <tr>
-            <th scope="row">1</th>
+            <th scope="row"><input type="radio" name="id" value="{{ $cart_item->id }}"
+                    {{ old('id') == 'checked' ? url('/cart/add', $cart_item->id) : url('cart/delete', $cart_item->id)}}>
+            </th>
             <td>
-                <a href="{{ route('user_search') }}">
+                <a href="">
                     OMBRE STAR PRINT CREPE PLEATED EMPIRE DRESS
                 </a>
             </td>

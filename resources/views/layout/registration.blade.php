@@ -16,34 +16,14 @@
 <body>
     <nav class="navbar navbar-expand-md fixed-top" id="nav">
         <div class="name">
-<<<<<<< HEAD
-            <a class="navbar-brand"><img id="name" src="./assets/name.png"
-=======
-            <a class="navbar-brand" ><img id="name" src="./assets/name.png"
->>>>>>> 63f69351875192790a1958fd426c519634612ee4
+            <a class="navbar-brand" href="{{route('home')}}"><img id="name" src="./assets/name.png"
                     alt="name"></a>
         </div>
         <div class="collapse navbar-collapse" id="navbarText">
         </div>
-<<<<<<< HEAD
-        <form class="form-inline my-2 my-lg-0">
-            <a href="{{ route('signup') }}"><button class="btn btn-outline-success my-2 my-sm-0 btn-md"
-                    type="button">Sign up</button></a>
-        </form>
-        <span class="navbar-text">
-        </span>
-        <form class="form-inline my-2 my-lg-0">
-            <a href="{{ route('user.login') }}"><button class="btn btn-success my-2 my-sm-0 btn-md"
-                    type="button">Login</button></a>
-        </form>
-        <span class="navbar-text">
-        </span>
-=======
-        <a href="{{route('home')}}" class="nav-item nav-link">home</a>
         <a href="{{route('signup')}}" class="nav-item nav-link">Sign up</a>
         <!-- marion ni nga login -->
-        <a href="{{route('login')}}" class="nav-item nav-link">Login</a>
->>>>>>> 63f69351875192790a1958fd426c519634612ee4
+        <a href="{{route('user.login')}}" class="nav-item nav-link">Login</a>
     </nav>
     <div class="container">
         @yield('content')

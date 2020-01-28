@@ -7,147 +7,51 @@
     {{ session('success') }}
 }
 @endif
+
+@foreach($products as $product)
 <div class="card flex-row flex-wrap">
     <div class="card-header border-0">
         <img src="./assets/dress1.jpg" width="200" alt="">
     </div>
     <div class="card-block px-2">
         <form action="" class="form">
-            <h2 class="card-title text-danger" name="product_name">OMBRE STAR PRINT CREPE PLEATED EMPIRE DRESS</h2>
+            @csrf
+            <h2 class="card-title text-danger" name="product_title">{{ $product['product_title'] }}</h2>
             <label>
                 <h4>Description</h4>
             </label>
             <ul>
-                <p class="card-text text-info">Sculptural pleats at the wide banded empire waist enrich the
-                    sophistication
-                    of our fit-and-flare dress tailored in sheer crepe with ombre star print at the skirt.</p>
+                <p class="card-text text-info" name="description">{{ $product['description'] }}</p>
             </ul>
             <label>
                 <h4>Brand Name</h4>
             </label>
             <ul>
-                <p class="card-text text-info">Ombre Star</p>
+                <p class="card-text text-info" name="brand_name">{{ $product['brand_name'] }}</p>
             </ul>
             <label>
                 <h4>Category</h4>
             </label>
-            <ul><p class="card-text text-info">Dress</p></ul>
-            <label>
-                <h4>Seller</h4>
-            </label>
             <ul>
-                <p class="card-text text-info">Jan Patrick Tancinco</p>
+                <p class="card-text text-info" name="category">{{ $product['category'] }}</p>
             </ul>
             <label>
                 <h4>Stock</h4>
             </label>
             <ul>
-                <p class="card-text text-info">100</p>
+                <p class="card-text text-info" name="stock">{{ $product['stock'] }}</p>
             </ul>
             <label>
                 <h4>Price</h4>
             </label>
             <ul>
-                <p class="card-text text-info">Php 999.99</p>
+                <p class="card-text text-info" name="price">Php {{ $product['price'] }}</p>
             </ul>
-            <a href="#" class="btn btn-primary btn-lg mb-2">ADD TO CART</a>
+            &nbsp;&nbsp;
+            <a href="{{ url('admin/update', $product['id']) }}"><button type="button"
+                    class="btn btn-primary btn-lg mb-2">ADD TO CART</button></a>
         </form>
     </div>
 </div>
-<br>
-<div class="card flex-row flex-wrap">
-    <div class="card-header border-0">
-        <img src="./assets/bag1.jpg" width="200" alt="">
-    </div>
-    <div class="card-block px-2">
-        <form action="" class="form">
-            <h2 class="card-title text-danger" name="product_name">OMBRE STAR PRINT CREPE PLEATED EMPIRE DRESS</h2>
-            <label>
-                <h4>Description</h4>
-            </label>
-            <ul>
-                <p class="card-text text-info">Sculptural pleats at the wide banded empire waist enrich the
-                    sophistication
-                    of our fit-and-flare dress tailored in sheer crepe with ombre star print at the skirt.</p>
-            </ul>
-            <label>
-                <h4>Brand Name</h4>
-            </label>
-            <ul>
-                <p class="card-text text-info">Ombre Star</p>
-            </ul>
-            <label>
-                <h4>Category</h4>
-            </label>
-            <ul><p class="card-text text-info">Dress</p></ul>
-            <label>
-                <h4>Seller</h4>
-            </label>
-            <ul>
-                <p class="card-text text-info">Jan Patrick Tancinco</p>
-            </ul>
-            <label>
-                <h4>Stock</h4>
-            </label>
-            <ul>
-                <p class="card-text text-info">100</p>
-            </ul>
-            <label>
-                <h4>Price</h4>
-            </label>
-            <ul>
-                <p class="card-text text-info">Php 999.99</p>
-            </ul>
-            <a href="#" class="btn btn-primary btn-lg mb-2">ORDER</a>
-        </form>
-    </div>
-</div>
-<br>
-<div class="card flex-row flex-wrap">
-    <div class="card-header border-0">
-        <img src="./assets/shoes1.jpg" width="200" alt="">
-    </div>
-    <div class="card-block px-2">
-        <form action="" class="form">
-            <h2 class="card-title text-danger" name="product_name">OMBRE STAR PRINT CREPE PLEATED EMPIRE DRESS</h2>
-            <label>
-                <h4>Description</h4>
-            </label>
-            <ul>
-                <p class="card-text text-info">Sculptural pleats at the wide banded empire waist enrich the
-                    sophistication
-                    of our fit-and-flare dress tailored in sheer crepe with ombre star print at the skirt.</p>
-            </ul>
-            <label>
-                <h4>Brand Name</h4>
-            </label>
-            <ul>
-                <p class="card-text text-info">Ombre Star</p>
-            </ul>
-            <label>
-                <h4>Category</h4>
-            </label>
-            <ul><p class="card-text text-info">Dress</p></ul>
-            <label>
-                <h4>Seller</h4>
-            </label>
-            <ul>
-                <p class="card-text text-info">Jan Patrick Tancinco</p>
-            </ul>
-            <label>
-                <h4>Stock</h4>
-            </label>
-            <ul>
-                <p class="card-text text-info">100</p>
-            </ul>
-            <label>
-                <h4>Price</h4>
-            </label>
-            <ul>
-                <p class="card-text text-info">Php 999.99</p>
-            </ul>
-            <a href="#" class="btn btn-primary btn-lg mb-2">ORDER</a>
-        </form>
-    </div>
-</div>
+@endforeach
 @endsection('content')
