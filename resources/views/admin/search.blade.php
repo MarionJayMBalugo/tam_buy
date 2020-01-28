@@ -44,8 +44,10 @@
             <ul>
                 <p class="card-text text-info" name="price">Php {{ $product['price'] }}</p>
             </ul>
-            <a href="#" class="btn btn-primary btn-lg mb-2">EDIT</a>
-            <a href="#" class="btn btn-danger btn-lg mb-2">REMOVE</a>
+            <a href="{{ url('admin/update', $product['id']) }}"><button type="button"
+                    class="btn btn-primary btn-lg mb-2">EDIT</button></a>
+            <a href="{{ url('admin/delete', $product['id']) }}"><button type="button"
+                    class="btn btn-danger btn-lg mb-2">REMOVE</button></a>
         </form>
     </div>
 </div>

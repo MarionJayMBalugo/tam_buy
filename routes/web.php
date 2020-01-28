@@ -34,17 +34,10 @@ Route::get('/admin/pendings', 'adminController@pendings')->name('admin_pendings'
 Route::get('/admin/product', 'adminController@addProduct')->name('admin_addProduct');
 Route::post('/admin/product', 'adminController@create')->name('admin_create');
 Route::get('/admin/paiditems', 'adminController@paidItems')->name("admin_paid_items");
-
-
-<<<<<<< HEAD
-=======
-//marion login routes
-Route::get('/login', 'pageController@login')->name('login');
-
-Route::get('/home', function () {
-    return view('user.home');
-})->name('user_home');
->>>>>>> 63f69351875192790a1958fd426c519634612ee4
+Route::get('/admin/update/{id}', 'adminController@updateForm')->name("admin_updateForm");
+Route::get('/admin/delete/{id}', 'adminController@deleteForm')->name("admin_deleteForm");
+Route::post('/admin/update/{id}', 'adminController@update')->name("admin_update");
+Route::get('/admin/delete/{id}', 'adminController@delete')->name("admin_delete");
 
 Route::get('/profile', function() {
     return view('user.profile');

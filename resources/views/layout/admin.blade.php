@@ -3,7 +3,7 @@
 
 <head>
     <title>tamBUY(Admin) - @yield('title')</title>
-    <link rel="stylesheet" type="text/css" href="../css/layout.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('/') }}/css/layout.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -17,7 +17,7 @@
 <body>
     <nav class="navbar navbar-expand-md fixed-top">
         <div class="name">
-            <a class="navbar-brand" href="{{ route('admin_home') }}"><img id="name" src="../assets/name.png"
+            <a class="navbar-brand" href="{{ route('admin_home') }}"><img id="name" src="{{ URL::to('/') }}/assets/name.png"
                     alt="name"></a>
         </div>
         <div class="collapse navbar-collapse" id="navbarText">
@@ -35,7 +35,7 @@
     </nav>
 
     <div class="sidenav">
-        <img class="btn" src="../assets/logo.png" alt="profile" id="profile" width='150'>
+        <img class="btn" src="{{ URL::to('/') }}/assets/logo.png" alt="profile" id="profile" width='150'>
         <a href="{{ route('admin_home') }}">Home</a>
         <a href="{{ route('admin_pendings') }}">Pendings</a>
         <a href="{{ route('admin_paid_items') }}">Paid Items</a>

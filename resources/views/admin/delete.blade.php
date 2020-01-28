@@ -4,20 +4,19 @@
 
 @section('content')
 
-@if(session()->has('success')) 
-<div class="alert alert-success">
-    {{ session('success') }}
+@if($errors->has('failed'))
+<div class="alert alert-danger">
+    {{ $errors->first('failed') }}
 </div>
 @endif
 
 @foreach($products as $product)
 <div class="card flex-row flex-wrap">
     <div class="card-header border-0">
-        <img src="./assets/dress1.jpg" width="200" alt="">
+        <img src="../assets/dress1.jpg" width="200" alt="">
     </div>
     <div class="card-block px-2">
         <form action="" class="form">
-            @csrf
             <h2 class="card-title text-danger" name="product_title">{{ $product['product_title'] }}</h2>
             <label>
                 <h4>Description</h4>
@@ -49,11 +48,14 @@
             <ul>
                 <p class="card-text text-info" name="price">Php {{ $product['price'] }}</p>
             </ul>
-            &nbsp;&nbsp;
-            <a href="{{ url('admin/update', $product['id']) }}"><button type="button"
-                    class="btn btn-primary btn-lg mb-2">EDIT</button></a>&nbsp;&nbsp;
-            <a href="{{ url('admin/delete', $product['id']) }}"><button type="button"
-                    class="btn btn-danger btn-lg mb-2">REMOVE</button></a>
+            <div class="alert alert-warning text-center mt-2">
+                <h2> Are you sure you want to remove this product?<h2>
+                        <br>
+                        <a type="button" class="btn btn-primary btn-lg mb-2"
+                            href="{{ route('admin_home') }}">CANCEL</a>&nbsp;&nbsp;
+                        <a type="button" class="btn btn-danger btn-lg mb-2"
+                            href="{{ url('admin/delete', $product['id']) }}">YES, REMOVE</a>
+            </div>
         </form>
     </div>
 </div>
