@@ -1,0 +1,91 @@
+body {
+  font-family: "Lato", sans-serif;
+}
+
+.sidenav {
+  margin-top: 62px;
+  height: 100%;
+  width: 210px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 20px;
+}
+
+.sidenav a {
+  padding: 6px 6px 6px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.main {
+  margin-left: 230px; /* Same as the width of the sidenav */
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+.navbar {
+  background-color: #FDA50F;
+}
+
+.container {
+  margin-left : 200px !important;
+  margin-top : 75px;
+  padding-right : 0 !important;
+}
+
+p {
+  font-size : 12px;
+}
+
+table {
+  font-size: 13px;
+  margin-left: 3px;
+}
+
+#profile {
+  border-radius: 10%;
+  margin-left: 18px;
+}
+
+.btn-primary{
+  width: 20%;
+  background-color: orange !important;
+  border: orange !important;
+  letter-spacing: 2px;
+  font-weight: bold !important;
+ }
+
+ .btn-default{
+   width: 100%;
+   background-color: orange !important;
+   border: orange !important;
+   letter-spacing: 2px;
+   font-weight: bold !important;
+   color: white !important;
+   font-size: 18px !important;
+  }
+
+.btn-danger {
+  letter-spacing: 2px;
+  font-weight: bold !important;
+  width: 20%;
+}
+
+#createForm {
+  margin-left: 10% !important;
+  margin-top: 30px !important;
+  width:80% !important;
+}
