@@ -3,10 +3,6 @@
 @section('title', 'Home')
 
 @section('content')
-@if(session()->has('success')) {
-    {{ session('success') }}
-}
-@endif
 <div class="card flex-row flex-wrap">
     <div class="card-header border-0">
         <img src="./assets/dress1.jpg" width="200" alt="">

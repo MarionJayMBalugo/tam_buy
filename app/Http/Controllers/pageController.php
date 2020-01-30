@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Users;
+use App\Models\Profile;
 use DB;
 
 class pageController extends Controller
@@ -57,14 +58,18 @@ class pageController extends Controller
             ]);
             DB::beginTransaction();
             try {
-    
+            
             $user->save();
             DB::commit();
-            return redirect('login')->with('registered', 'Registered successfully');
+            $user=Users::where('email',$request['email'])->firstOrFail();
+           
+            $profile = new Profile(['image' => 'default.jpg']);
+            $user->profile()->save($profile);
+             return redirect('/login')->with('registered', 'Registered successfully');
         }
         catch (\Exception $e) {
             DB::rollback();
-            return redirect()->back()->withInput()->withErrors('failed', 'Failed to register');
+            return redirect('loginForm')->back()->withInput()->withErrors('failed', 'Failed to register');
         }
     }
     
@@ -74,20 +79,30 @@ class pageController extends Controller
             'password' => 'required',
         ]);
         try {
-            $user = Users::where('username', '=', $request['username'])
+            $user = Users::where('email', '=', $request['username'])
                 ->where('password', '=', $request['password'])
-                ->get(['user_type']);
-
-            if ($user[0]['user_type'] == "user") {
-                return redirect('home')->with('success', 'Successful login');
-            }
-            else if ($user[0]['user_type'] == 'admin') {
+                ->get();
+                $userProfile=Users::find($user[0]->id)->profile;
+            // if ($user[0]['user_type'] == "user") {
+            //     $request->session()->put('user',$user);
+            //     return redirect('home')->with('success', 'Successful login');
+            // }
+            if($user){
+                $request->session()->put('user',$user);
+                $request->session()->put('userProfilePic',$userProfile);
+                if ($user[0]->email == 'admin@admin.com') {
                     return redirect('admin')->with('success', 'Successful login');
-            } else {
+                } else {
+                    
+                     return redirect('home')->with('success', 'Successful login');
+                }
+            } else {      
                 return redirect()->back()->withInput()->withErrors('failed', 'Failed to login');
             }
+            
         }
         catch (\Exception $e) {
+          
             return redirect()->back()->withInput()->withErrors('failed', 'Failed to login');
         }
         // return redirect('home');

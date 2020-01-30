@@ -6,7 +6,7 @@
 <style>
 </style>
 <div class="col-sm-10 mt-3 ml-100 mb-5" id="formDiv">
-    <form action="" method="post" class="form" >
+    <form action="{{route('user.register')}}" method="post" class="form" >
         @csrf
         <div>
         <h1>Create Account</h1>

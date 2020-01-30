@@ -19,7 +19,7 @@ Route::post('/','pageController@home')->name('home');
 Route::get('/login', 'pageController@loginForm')->name('loginForm');
 Route::get('/register', 'pageController@registerForm')->name('signup');
 Route::post('/login', 'pageController@login')->name('user.login');
-Route::post('/register', 'pageController@register')->name("user.register");
+Route::post('/registers', 'pageController@register')->name("user.register");
 
 Route::get('/logout', 'usersController@logout')->name("user.logout");
 Route::get('/home', 'usersController@home')->name('user_home');
@@ -35,7 +35,7 @@ Route::get('/admin/product', 'adminController@addProduct')->name('admin_addProdu
 Route::post('/admin/product', 'adminController@create')->name('admin_create');
 Route::get('/admin/paiditems', 'adminController@paidItems')->name("admin_paid_items");
 
-
+Route::get('/test', 'usersController@test')->name("test");
 //marion login routes
 
 
@@ -43,6 +43,5 @@ Route::get('/home', function () {
     return view('user.home');
 })->name('user_home');
 
-Route::get('/profile', function() {
-    return view('user.profile');
-})->name('user_profile');
+Route::get('/profile','usersController@profile')->name('user_profile');
+Route::post('/upload', 'UploadController@upload')->name('profileUpload');

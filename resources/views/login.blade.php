@@ -5,7 +5,7 @@
 @section('content')
 
 <div class="col-sm-10 mt-3 ml-100 mb-5" id="formDiv">
-    <form action="" method="post" class="form">
+    <form action="{{route('user.login')}}" method="post" class="form">
         @csrf
         <h1>Sign In</h1>
       

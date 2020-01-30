@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Products;
-
+use App\Models\Users;
+use App\Models\Profile;
 class usersController extends Controller
 {
 
@@ -30,6 +31,16 @@ class usersController extends Controller
     }
     public function logout() {
         return redirect('login')->with('logout', "successful logout");
+    }
+    public function test() {
+        
+        $users=Users::find(1)->profile;
+        echo $users;
+               
+    }
+    public function profile() {
+        
+         return view('user.profile')->with('userData',[session('user'),session('userProfilePic')]);
     }
 
 }
