@@ -1,4 +1,4 @@
-@extends('layout.layout')
+@extends('layouts.userLayout')
 
 @section('title', 'Home')
 
@@ -50,7 +50,7 @@
             <ul>
                 <p class="card-text text-info">Php 999.99</p>
             </ul>
-            <a href="#" class="btn btn-primary btn-lg mb-2">ADD TO CART</a>
+            <a href="" class="btn btn-primary btn-lg mb-2">ADD TO CART</a>
         </form>
     </div>
 </div>

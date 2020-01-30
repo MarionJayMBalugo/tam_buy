@@ -16,7 +16,7 @@
         <tr>
             <th scope="row">1</th>
             <td>
-                <a href="{{ route('user_search') }}">
+                <a href="">
                     OMBRE STAR PRINT CREPE PLEATED EMPIRE DRESS
                 </a>
             </td>

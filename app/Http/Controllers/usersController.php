@@ -28,8 +28,9 @@ class usersController extends Controller
     public function pendings() {
         return view('user.pendings');
     }
-    public function logout() {
-        return redirect('login')->with('logout', "successful logout");
-    }
+
+    // public function logout() {
+    //     return redirect('login')->with('logout', "successful logout");
+    // }
 
 }

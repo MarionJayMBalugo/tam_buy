@@ -1,10 +1,7 @@
-@extends('layout.registration')
-@section('title', 'home')
+@extends('layouts.GuestDashboard')
+@section('title', 'Welcome to tamBuy')
 @section('content')
-
-@overwrite
     <!-- carousel -->
-    
     <div>
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -151,9 +148,9 @@
             <br>
             <p>@copyright 2020-2022 | all rights reserved</p>
         </div>
-        
     </section>
-    
+    <br>
+@endsection
 
 
     

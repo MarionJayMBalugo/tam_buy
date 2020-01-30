@@ -28,6 +28,7 @@ class adminController extends Controller
     public function pendings() {
         return view('admin.pendings');
     }
+    
     public function logout() {
         return redirect('login')->with('logout', "successful logout");
     }
@@ -35,5 +36,5 @@ class adminController extends Controller
     public function addProduct() {
         return view('admin.create');
     }
-    //
+
 }

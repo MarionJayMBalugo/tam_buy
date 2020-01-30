@@ -17,8 +17,19 @@ class RedirectIfAuthenticated
      */
     public function handle($request, Closure $next, $guard = null)
     {
+
+        // $type = Auth::user_type();
+
+        // if (Auth::guard($guard)->check()) {
+        //     if($type=='Admin'){
+        //         return redirect('/adminhome');
+        //     } else {
+        //         return redirect('/userhome');
+        //     }
+        // }
+
         if (Auth::guard($guard)->check()) {
-            return redirect('/home');
+            return redirect('/userhome');
         }
 
         return $next($request);

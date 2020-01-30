@@ -3,7 +3,7 @@
 
 <head>
     <title>tamBUY - @yield('title')</title>
-    <link rel="stylesheet" type="text/css" href="../css/layout.css">
+    <link rel="stylesheet" type="text/css" href="{{ URL::to('/') }}/css/layout.css">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -17,12 +17,12 @@
 <body>
     <nav class="navbar navbar-expand-md fixed-top">
         <div class="name">
-            <a class="navbar-brand" href="{{ route('user_home') }}"><img id="name" src="./assets/name.png"
+            <a class="navbar-brand" href=""><img id="name" src="{{ URL::to('/') }}/assets/name.png"
                     alt="name"></a>
         </div>
         <div class="collapse navbar-collapse" id="navbarText">
         </div>
-        <form method="get" action="{{ route('user_search') }}" class="form-inline my-2 my-lg-0">
+        <form method="get" action="" class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2 btn-lg" name="product_title" type="search" placeholder="Search"
                 aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0 btn-lg" type="submit">Search</button>
@@ -30,7 +30,7 @@
         <span class="navbar-text">
         </span>
         <form class="form-inline my-2 my-lg-0">
-            <a href="{{ route('user_cart') }}"><img id="cart" src="./assets/cart.png" width="50" alt="cart"></a>
+            <a href=""><img id="cart" src="{{ URL::to('/') }}/assets/cart.png" width="50" alt="cart"></a>
         </form>
         <span class="navbar-text">
         </span>
@@ -38,10 +38,11 @@
 
     <div class="sidenav">
         <img src="./profiles/profile1.jpg" alt="profile" id="profile" width='180'>
-        <a href="{{ route('user_home') }}">Home</a>
-        <a href="{{ route('user_profile') }}"><img src="@yield('profile')">Profile</a>
-        <a href="#">Paid Items</a>
-        <a href="{{ route('loginForm') }}">Logout</a>
+        <a href="">Home</a>
+        <a href="">Profile</a>
+        <a href="">Pendings</a>
+        <a href="">Paid Items</a>
+        <a href="{{ route('logout') }}">Logout</a>
     </div>
 
     <div class="container w-90">

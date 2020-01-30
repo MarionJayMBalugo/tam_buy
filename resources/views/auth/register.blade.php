@@ -1,12 +1,8 @@
-@extends('layout.registration')
-
-@section('title', 'Signup')
+@extends('layouts.GuestDashboard')
 
 @section('content')
-<style>
-</style>
-<div class="col-sm-10 mt-3 ml-100 mb-5" id="formDiv">
-    <form action="" method="post" class="form" >
+<div class="col-sm-5" id="formDiv" style="margin-top:80px;">
+    <form action="{{ route('guest.register') }}" method="post" class="form" >
         @csrf
         <div>
         <h1>Create Account</h1>
@@ -14,7 +10,7 @@
             <!-- <center>
                 <br>
                 <img src="../image/registericon.png" width="100" alt="Avatar" id="avatar">
-         
+            
                 <hr>
             </center> -->
         </div>
@@ -54,12 +50,23 @@
             <div class="input-group">
                 <label><b>Gender:</b>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input type="radio" class="form-check-input" name="gender"
-                        value="Male">Male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <input type="radio" class="form-check-input" name="gender" value="Female">Female
+                        value="Male" {{ old('gender') == 'Male' ? 'checked' : '' }}>Male&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" class="form-check-input" name="gender" value="Female" {{ old('gender') == 'Female' ? 'checked' : '' }}>Female
                 </label>
             </div>
         </div>
-       
+        <div class="form-group">
+            <div class="input-group">
+                <input type="number" class="form-control" name="phone_number" value="{{ old('phone_number') }}"
+                    placeholder="Phone Number">
+            </div>
+            <span class="text-danger">
+                @if($errors->has('phone_number'))
+                {{ $errors->first('phone_number') }}
+                @endif
+            </span>
+        </div>
+        
         <div class="form-group">
             <div class="input-group">
                 <input type="password" class="form-control" value="{{ old('password') }}" name="password"
@@ -78,13 +85,9 @@
             </div>
         </div>
         <div class="form-group" id="registerButton">
-            
                 <button type="submit" name="submit" class="btn btn-primary">Register</button>
-            
         </div>
-        Already have an account? <a href="{{route('loginForm')}}">Login here</a>
+        Already have an account? <a href="{{ route('guest.loginForm') }}">Login here</a>
     </form>
-
-    
 </div>
-@endsection('content')
+@endsection
